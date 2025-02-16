@@ -2,19 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Page Not Found</title>
+    
+    <!-- Icons Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        /* Battery Efficient Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0f0f0f;
+            color: #fff;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -24,175 +30,161 @@
 
         .container {
             text-align: center;
-            color: white;
+            padding: 20px;
+            max-width: 600px;
             position: relative;
-            z-index: 1;
         }
 
+        /* Animated Background Elements */
+        .decorative-circle {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: pulse 6s infinite;
+        }
+
+        /* Main Content */
         .error-code {
-            font-size: 15rem;
+            font-size: 8rem;
             font-weight: 900;
-            text-shadow: 8px 8px 0 rgba(0,0,0,0.1);
-            animation: fadeIn 1.5s ease-in-out;
-            margin-bottom: -1rem;
+            background: linear-gradient(45deg, #ff6f61, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(255, 111, 97, 0.3);
         }
 
         .message {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            animation: slideUp 1s ease-out;
+            color: #ddd;
+            line-height: 1.6;
         }
 
-        .cta-button {
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            background: white;
-            color: #667eea;
+        /* Home Button */
+        .home-btn {
+            background: linear-gradient(45deg, #ff6f61, #ffcc00);
+            color: white;
+            padding: 15px 40px;
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 111, 97, 0.3);
         }
 
-        .animated-background {
+        /* Decorative Icons */
+        .decorative-icons {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+            opacity: 0.1;
         }
 
-        .circle {
+        /* Japanese Cultural Elements */
+        .sakura {
             position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            animation: pulse 4s infinite;
+            width: 20px;
+            height: 20px;
+            background: #ff6f61;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: float 5s infinite ease-in-out;
         }
 
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+        .sakura.two {
+            width: 15px;
+            height: 15px;
+            background: #ffcc00;
+            animation-delay: 2s;
         }
 
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 2s infinite ease-in-out;
+        .sakura.three {
+            width: 25px;
+            height: 25px;
+            background: #ff6f61;
+            animation-delay: 4s;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* Battery Efficient Animations */
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); opacity: 0.5; }
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.05; }
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        @media (max-width: 768px) {
+        /* Mobile Optimization */
+        @media (max-width: 480px) {
             .error-code {
-                font-size: 8rem;
+                font-size: 5rem;
             }
             .message {
-                font-size: 1.5rem;
-                padding: 0 1rem;
+                font-size: 1.2rem;
             }
+            .home-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Performance Optimizations */
+        .container > * {
+            will-change: transform;
         }
     </style>
 </head>
 <body>
-    <div class="animated-background" id="background"></div>
-    <div class="stars" id="stars"></div>
-    
     <div class="container">
+        <!-- Decorative Circles -->
+        <div class="decorative-circle" style="width: 300px; height: 300px; top: -50px; left: -50px;"></div>
+        <div class="decorative-circle" style="width: 200px; height: 200px; bottom: -30px; right: -30px;"></div>
+
+        <!-- Sakura Flowers -->
+        <div class="sakura" style="top: 10%; left: 5%;"></div>
+        <div class="sakura two" style="top: 20%; right: 10%;"></div>
+        <div class="sakura three" style="bottom: 15%; left: 20%;"></div>
+
+        <!-- Main Content -->
         <div class="error-code">404</div>
-        <h1 class="message">Oops! Page Lost in Space</h1>
-        <a href="/" class="cta-button">
-            <i class="fas fa-arrow-left"></i> Back to Home
-        </a>
+        
+        <div class="message">
+            <i class="fas fa-exclamation-triangle"></i>
+            Oops! The page you're looking for doesn't exist.<br>
+            おっと！お探しのページは見つかりませんでした。
+        </div>
+
+        <button class="home-btn" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i>
+            Go Back to Homepage
+        </button>
+
+        <!-- Decorative Icons -->
+        <i class="fas fa-star decorative-icons" style="top: 20%; left: 15%; font-size: 1.2rem;"></i>
+        <i class="fas fa-circle decorative-icons" style="top: 70%; right: 20%; font-size: 0.8rem;"></i>
+        <i class="fas fa-heart decorative-icons" style="bottom: 30%; left: 25%; font-size: 1rem;"></i>
     </div>
 
-    <script>
-        // Create animated background circles
-        function createBackground() {
-            const background = document.getElementById('background');
-            const colors = ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.15)', 'rgba(255,255,255,0.2)'];
-            
-            for(let i = 0; i < 15; i++) {
-                const circle = document.createElement('div');
-                circle.classList.add('circle');
-                
-                // Random properties
-                const size = Math.random() * 200 + 50;
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const delay = Math.random() * 4;
-                
-                circle.style.width = `${size}px`;
-                circle.style.height = `${size}px`;
-                circle.style.left = `${left}%`;
-                circle.style.top = `${top}%`;
-                circle.style.background = color;
-                circle.style.animationDelay = `${delay}s`;
-                
-                background.appendChild(circle);
-            }
-        }
-
-        // Create twinkling stars
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            
-            for(let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Random properties
-                const size = Math.random() * 3 + 1;
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const delay = Math.random() * 2;
-                const duration = Math.random() * 2 + 1;
-                
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${left}%`;
-                star.style.top = `${top}%`;
-                star.style.animationDelay = `${delay}s`;
-                star.style.animationDuration = `${duration}s`;
-                
-                starsContainer.appendChild(star);
-            }
-        }
-
-        createBackground();
-        createStars();
-    </script>
+    <!-- Battery Efficient SVG Background -->
+    <svg style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+        <filter id="noiseFilter">
+            <feTurbulence 
+                type="fractalNoise" 
+                baseFrequency="0.65" 
+                numOctaves="3" 
+                stitchTiles="stitch"/>
+        </filter>
+        
+        <rect width="100%" height="100%" filter="url(#noiseFilter)" opacity="0.03"/>
+    </svg>
 </body>
 </html>
