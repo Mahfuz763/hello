@@ -294,7 +294,7 @@ def cloud_upload():
     return render_template('cloud_upload.html')
 
 def keep_alive():
-    url = "https://hello-if.onrender.com/ping"
+    url = "http://hello-if-qn39.onrender.com/ping"
     while True:
         time.sleep(300)
         try:
